@@ -173,14 +173,9 @@ dark_knight_rises.save
 puts "There are #{Movie.all.count} movies"
 
 # Adding roles to roles table
-# role = role.new
-# role.movie.id = 
-# role.person_id = role.id
-# role.character_name = "Bruce Wayne"
-# role.save
+role = role.new
+role.movie.id = movie.id
+role.person_id = person.id
+role.character_name = "Bruce Wayne"
+role.save
 
-# role = role.new
-# role.movie.id = 
-# role.person_id = role.id
-# role.character_name = " Wayne"
-# role.save
