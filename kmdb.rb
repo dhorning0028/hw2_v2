@@ -93,3 +93,51 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+
+# Adding people to person table
+person1 = Person.new
+person1.name = "Christian Bale"
+person1.save
+
+person2 = Person.new
+person2.name = "Anne Hathaway"
+person2.save
+
+person3 = Person.new
+person3.name = "Michael Cain"
+person3.save
+
+person4 = Person.new
+person4.name = "Liam Neeson"
+person4.save
+
+person5 = Person.new
+person5.name = "Katie Holmes"
+person5.save
+
+person6 = Person.new
+person6.name = "Gary Oldman"
+person6.save
+
+person7 = Person.new
+person7.name = "Heath Ledger"
+person7.save
+
+person8 = Person.new
+person8.name = "Aaron Eckhart"
+person8.save
+
+person9 = Person.new
+person9.name = "Maggie Gyllenhaal"
+person9.save
+
+person10 = Person.new
+person10.name = "Tom Hardy"
+person10.save
+
+person11 = Person.new
+person11.name = "Joseph Gordon-Levitt"
+person11.save
+
+puts "There are #{Person.all.count} persons"
