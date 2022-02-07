@@ -99,7 +99,7 @@ puts ""
 #Delete existing data to re-run scripts fresh
 Movie.destroy_all
 Person.destroy_all
-
+Person.destroy_all
 
 # Adding people to person table
 person1 = Person.new
@@ -146,6 +146,10 @@ person11 = Person.new
 person11.name = "Joseph Gordon-Levitt"
 person11.save
 
+person12 = Person.new
+person12.name = "Christopher Nolan"
+person12.save
+
 puts "There are #{Person.all.count} persons"
 
 # # Adding Movies to movies table
@@ -153,29 +157,45 @@ batman_begins = Movie.new
 batman_begins.title = "Batman Begins"
 batman_begins.year = "2005"
 batman_begins.rating = "PG-13"
-# batman_begins.person_id = christopher_nolan.id
 batman_begins.save
 
 dark_knight = Movie.new
 dark_knight.title = "The Dark Knight"
 dark_knight.year = "2008"
 dark_knight.rating = "PG-13"
-# batman_begins.person_id = christopher_nolan.id
 dark_knight.save
 
 dark_knight_rises = Movie.new
 dark_knight_rises.title = "The Dark Knight Rises"
 dark_knight_rises.year = "2012"
 dark_knight_rises.rating = "PG-13"
-# batman_begins.person_id = christopher_nolan.id
 dark_knight_rises.save
 
 puts "There are #{Movie.all.count} movies"
 
 # Adding roles to roles table
-role = role.new
-role.movie.id = movie.id
-role.person_id = person.id
-role.character_name = "Bruce Wayne"
-role.save
 
+
+role1 = Role.new
+# role1.movie_id = movie.id
+role1.person_id = person1.id
+role1.character_name = "Bruce Wayne"
+role1.save
+
+# variables
+movie = Movie.where({ title: "The Dark Knight Rises"})[0]
+puts movie.title
+
+christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
+puts christopher_nolan.title
+
+# Loops
+movie = Movie.where({ person_id: christopher_nolan.id })
+puts movie
+
+puts "Movies: #{movie.count}"
+for movie in movies
+    puts "#{movie.title} #{(movie.year)}"
+end
+
+movies = christopher_nolan.movie
