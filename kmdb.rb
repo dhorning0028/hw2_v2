@@ -78,9 +78,9 @@
 # TODO!
 
 # Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
+# puts "Movies"
+# puts "======"
+# puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
@@ -150,7 +150,7 @@ person12 = Person.new
 person12.name = "Christopher Nolan"
 person12.save
 
-puts "There are #{Person.all.count} persons"
+# puts "There are #{Person.all.count} persons"
 
 # # Adding Movies to movies table
 batman_begins = Movie.new
@@ -171,7 +171,7 @@ dark_knight_rises.year = "2012"
 dark_knight_rises.rating = "PG-13"
 dark_knight_rises.save
 
-puts "There are #{Movie.all.count} movies"
+# puts "There are #{Movie.all.count} movies"
 
 # Adding roles to roles table
 role1 = Role.new
@@ -240,19 +240,23 @@ role11.person_id = person11.id
 role11.character_name = "Director"
 role11.save
 
-# variables
-movie = Movie.where({ title: "The Dark Knight Rises"})[0]
-puts movie.title
-
-christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
-puts christopher_nolan.name
 
 # Loops
-movies = Movie.where({ person_id: role.id })
-puts movie.title
+christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
 
-puts "Movies: #{movies.count}"
+puts "Movies"
+puts "======"
+puts ""
+
+movies = Movie.all
 for movie in movies
-    puts "#{movie.title} #{(movie.year)}"
+    puts "#{movie.title}    #{movie.year}    #{movie.rating}    #{christopher_nolan.name}"
 end
+
+puts "Movies: #{Movie.all.count}"
+# for Movie in movie
+#     puts "#{movie.title}"
+#     movies = christopher_nolan.movies
+# end
+
 
