@@ -86,10 +86,10 @@
 # TODO!
 
 # Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
+# puts ""
+# puts "Top Cast"
+# puts "========"
+# puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
@@ -181,7 +181,7 @@ role1.character_name = "Bruce Wayne"
 role1.save
 
 role2 = Role.new
-role2.movie_id = movie1.id
+role2.movie_id = movie3.id
 role2.person_id = person2.id
 role2.character_name = "Selina Kyle"
 role2.save
@@ -206,43 +206,43 @@ role5.save
 
 role6 = Role.new
 role6.movie_id = movie1.id
-role6.person_id = person5.id
+role6.person_id = person6.id
 role6.character_name = "Commissioner Gordon"
 role6.save
 
 role7 = Role.new
-role7.movie_id = movie1.id
-role7.person_id = person6.id
+role7.movie_id = movie2.id
+role7.person_id = person7.id
 role7.character_name = "Joker"
 role7.save
 
 role8 = Role.new
 role8.movie_id = movie1.id
-role8.person_id = person7.id
+role8.person_id = person8.id
 role8.character_name = "Harvey Dent"
 role8.save
 
 role9 = Role.new
 role9.movie_id = movie1.id
-role9.person_id = person8.id
+role9.person_id = person9.id
 role9.character_name = "Rachel Dawes"
 role9.save
 
 role10 = Role.new
 role10.movie_id = movie1.id
-role10.person_id = person9.id
+role10.person_id = person10.id
 role10.character_name = "Bane"
 role10.save
 
 role11 = Role.new
 role11.movie_id = movie1.id
-role11.person_id = person10.id
+role11.person_id = person11.id
 role11.character_name = "John Blake"
 role11.save
 
 role12 = Role.new
 role12.movie_id = movie1.id
-role12.person_id = person11.id
+role12.person_id = person12.id
 role12.character_name = "Director"
 role12.save
 
@@ -260,17 +260,25 @@ for movie in movies
 end
 
 puts "Movies: #{Movie.all.count}"
-# for Movie in movie
-#     puts "#{movie.title}"
-#     movies = christopher_nolan.movies
-# end
 
 puts "Roles: #{Role.all.count}"
+
+puts ""
+puts "Top Cast"
+puts "======"
+puts ""
+
 
 roles = Role.all
 for role in roles
     actor = Person.where({ id: role.person_id})[0]
-    puts "#{movie1.title} #{actor.name}"
+    character = Person.where({ id: role.character_name})[0]
+    puts "#{movie1.title}       #{actor.name}       #{role.character_name}"
+    # puts ""
+    puts "#{movie2.title}       #{actor.name}       #{role.character_name}"
+    # puts ""
+    puts "#{movie3.title}       #{actor.name}       #{role.character_name}"
+    # puts ""
 end
 
 
