@@ -99,7 +99,7 @@ puts ""
 #Delete existing data to re-run scripts fresh
 Movie.destroy_all
 Person.destroy_all
-Person.destroy_all
+Role.destroy_all
 
 # Adding people to person table
 person1 = Person.new
@@ -175,70 +175,76 @@ movie3.save
 
 # Adding roles to roles table
 role1 = Role.new
-role1.movie_id = Movie.where({title: "Batman Begins"})[0]
+role1.movie_id = movie1.id
 role1.person_id = person1.id
 role1.character_name = "Bruce Wayne"
 role1.save
 
 role2 = Role.new
-# role2.movie_id = movie.id
+role2.movie_id = movie1.id
 role2.person_id = person2.id
 role2.character_name = "Selina Kyle"
 role2.save
 
 role3 = Role.new
-# role3.movie_id = movie.id
+role3.movie_id = movie1.id
 role3.person_id = person3.id
 role3.character_name = "Alfred"
 role3.save
 
 role4 = Role.new
-# role4.movie_id = movie.id
+role4.movie_id = movie1.id
 role4.person_id = person4.id
 role4.character_name = "Ra's Al Ghul"
 role4.save
 
 role5 = Role.new
-# role5.movie_id = movie.id
+role5.movie_id = movie1.id
 role5.person_id = person5.id
-role5.character_name = "Commissioner Gordon"
+role5.character_name = "Rachel Dawes"
 role5.save
 
 role6 = Role.new
-# role6.movie_id = movie.id
-role6.person_id = person6.id
-role6.character_name = "Joker"
+role6.movie_id = movie1.id
+role6.person_id = person5.id
+role6.character_name = "Commissioner Gordon"
 role6.save
 
 role7 = Role.new
-# role7.movie_id = movie.id
-role7.person_id = person7.id
-role7.character_name = "Harvey Dent"
+role7.movie_id = movie1.id
+role7.person_id = person6.id
+role7.character_name = "Joker"
 role7.save
 
 role8 = Role.new
-# role8.movie_id = movie.id
-role8.person_id = person8.id
-role8.character_name = "Rachel Dawes"
+role8.movie_id = movie1.id
+role8.person_id = person7.id
+role8.character_name = "Harvey Dent"
 role8.save
 
 role9 = Role.new
-# role9.movie_id = movie.id
-role9.person_id = person9.id
-role9.character_name = "Bane"
+role9.movie_id = movie1.id
+role9.person_id = person8.id
+role9.character_name = "Rachel Dawes"
 role9.save
 
 role10 = Role.new
-# role10.movie_id = movie.id
-role10.person_id = person10.id
-role10.character_name = "John Blake"
+role10.movie_id = movie1.id
+role10.person_id = person9.id
+role10.character_name = "Bane"
 role10.save
 
 role11 = Role.new
-# role11.movie_id = movie.id
-role11.person_id = Person.where({ name: "Christopher Nolan"})[0]
-role11.character_name = "Director"
+role11.movie_id = movie1.id
+role11.person_id = person10.id
+role11.character_name = "John Blake"
 role11.save
+
+role12 = Role.new
+role12.movie_id = movie1.id
+role12.person_id = person11.id
+role12.character_name = "Director"
+role12.save
 
 
 # Loops
@@ -258,5 +264,13 @@ puts "Movies: #{Movie.all.count}"
 #     puts "#{movie.title}"
 #     movies = christopher_nolan.movies
 # end
+
+puts "Roles: #{Role.all.count}"
+
+roles = Role.all
+for role in roles
+    actor = Person.where({ id: role.person_id})[0]
+    puts "#{movie1.title} #{actor.name}"
+end
 
 
