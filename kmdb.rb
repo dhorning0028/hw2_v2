@@ -259,9 +259,9 @@ for movie in movies
     puts "#{movie.title}    #{movie.year}    #{movie.rating}    #{christopher_nolan.name}"
 end
 
-puts "Movies: #{Movie.all.count}"
+# puts "Movies: #{Movie.all.count}"
 
-puts "Roles: #{Role.all.count}"
+# puts "Roles: #{Role.all.count}"
 
 puts ""
 puts "Top Cast"
